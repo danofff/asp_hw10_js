@@ -1,0 +1,36 @@
+﻿@model IEnumerable<asp_hw10_js.Models.Customer>
+@{
+    ViewBag.Title = "Клиенты";
+}
+
+<h2>Клиенты <small>Найдено: <b id="count">@Model.Count()</b></small></h2>
+<div>@DateTime.Now.ToString("HH:mm:ss")</div>
+
+<hr/>
+
+<table class="table table-bordered table-hover" id="main_table">
+    <thead>
+    <tr>
+        <th>ИД</th>
+        <th>Имя</th>
+        <th>Описание</th>
+        <th>Возраст</th>
+        <th>Дата</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var customer in Model)
+    {
+        <tr>
+            <td>@customer.Id</td>
+            <td>@customer.Name</td>
+            <td>@customer.Employment.Name</td>
+            <td>@customer.Age</td>
+            <td>@customer.Date.ToShortDateString()</td>
+            <td><button class="btn btn-danger delete">&#10006</button></td>
+        </tr>
+    }
+    </tbody>
+</table>
+<script src="~/Scripts/customScript.js"></script>
