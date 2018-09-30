@@ -67,8 +67,7 @@
                                 success: function () {
                                     $.get("/Home/JsonData",
                                         function(newDataArray) {
-                                            
-                                           console.log(newDataArray[0].Id);
+                                            //HERE YOU SHOULD MAKE SOME CHANGES
                                         });
                                 }
                             });
