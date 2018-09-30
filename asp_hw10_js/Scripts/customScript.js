@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
 
     var table = $("#main_table").DataTable({
+        destroy:true,
         ajax: {
             url: "/Home/JsonData",
             dataSrc: ""
@@ -45,16 +46,17 @@
 
     $(".delete").on("click",
         function () {
+
             var customerId = $("#customer_id").val();
 
             if (tryParseInt(customerId, 0) === 0) {
 
                 $('#myModal').modal('show');
 
-            } else {
+            }
+            else {
                 var button = $(this);
-                $(button).attr("data-customer-id", customerId);
-                console.log($(button).attr("data-customer-id"));
+                $(button).attr("data-customer-id", customerId);             
                 bootbox.confirm("are you sure you want to delete customer?",
 
                     function (result) {
@@ -63,7 +65,11 @@
                                 url: "/Home/Delete/" + button.attr("data-customer-id"),
                                 method: "GET",
                                 success: function () {
-                                    table.row(button.parents("tr")).remove().draw();
+                                    $.get("/Home/JsonData",
+                                        function(newDataArray) {
+                                            
+                                           console.log(newDataArray[0].Id);
+                                        });
                                 }
                             });
                         }
