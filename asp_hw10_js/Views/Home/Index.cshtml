@@ -6,31 +6,43 @@
 <h2>Клиенты <small>Найдено: <b id="count">@Model.Count()</b></small></h2>
 <div>@DateTime.Now.ToString("HH:mm:ss")</div>
 
-<hr/>
+
+<label for="customer_id">Delete customer</label>
+<input type="text" class="container" id="customer_id" />
+<button class="btn btn-danger delete">Delete</button>
+
+<hr />
 
 <table class="table table-bordered table-hover" id="main_table">
     <thead>
-    <tr>
-        <th>ИД</th>
-        <th>Имя</th>
-        <th>Описание</th>
-        <th>Возраст</th>
-        <th>Дата</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var customer in Model)
-    {
         <tr>
-            <td>@customer.Id</td>
-            <td>@customer.Name</td>
-            <td>@customer.Employment.Name</td>
-            <td>@customer.Age</td>
-            <td>@customer.Date.ToShortDateString()</td>
-            <td><button class="btn btn-danger delete">&#10006</button></td>
+            <th>ИД</th>
+            <th>Имя</th>
+            <th>Описание</th>
+            <th>Возраст</th>
+            <th>Дата</th>
+            <th>Delete</th>
         </tr>
-    }
-    </tbody>
+    </thead>
+    <tbody></tbody>
 </table>
-<script src="~/Scripts/customScript.js"></script>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Wrong customer ID</h4>
+            </div>
+            <div class="modal-body">
+                <p>Try to type number in textbox.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*СМОТРИ "Scripts/customScript.js" ДЛЯ ПРОВЕРКИ ИСПОЛНЯЮЩЕГО СКРИПТА*@
+<script src="~/Scripts/customScript.js?@DateTime.Now.Ticks"></script>
