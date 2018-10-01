@@ -166,6 +166,10 @@
     <Compile Include="Migrations\201809241337404_AddDataToEmployment.Designer.cs">
       <DependentUpon>201809241337404_AddDataToEmployment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810011248253_add_data_to_customers.cs" />
+    <Compile Include="Migrations\201810011248253_add_data_to_customers.Designer.cs">
+      <DependentUpon>201810011248253_add_data_to_customers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppContext.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -250,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809241337404_AddDataToEmployment.resx">
       <DependentUpon>201809241337404_AddDataToEmployment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810011248253_add_data_to_customers.resx">
+      <DependentUpon>201810011248253_add_data_to_customers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
