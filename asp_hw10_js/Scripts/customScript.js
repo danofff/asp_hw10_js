@@ -67,7 +67,11 @@
                                 success: function () {
                                     $.get("/Home/JsonData",
                                         function(newDataArray) {
-                                            //HERE YOU SHOULD MAKE SOME CHANGES
+                                            table.ajax.reload();
+                                            var count = document.getElementById("count").textContent;
+                                            var parcedCount = parseInt(count, 10);
+                                            document.getElementById("count").textContent = --parcedCount;
+                                            $("#customer_id").val('');
                                         });
                                 }
                             });
